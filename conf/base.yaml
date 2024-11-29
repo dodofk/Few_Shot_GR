@@ -1,0 +1,35 @@
+defaults:
+  - _self_
+
+model:
+  model_name: "meta-llama/Llama-3.1-8B-Instruct"
+  device: "cuda"
+  torch_dtype: "bfloat16"
+
+prompts:
+  directory: "prompts"
+  identifier_template: "identifier.j2"
+  pq_template: "pq.j2"
+
+pq_generation:
+  max_length: 512
+  temperature: 0.7
+  do_sample: true
+  num_beams: 5
+  n_queries: 10
+  save_dir: "pq"
+  save_path: "pq.jsonl"
+
+retrieval:
+  n_docids_per_doc: 10
+  similarity_threshold: 0.8
+  top_k: 1
+
+generation:
+  max_length: 512
+  temperature: 0.7
+  do_sample: true
+  num_beams: 5
+  n_queries: 10
+
+device: "cuda"
